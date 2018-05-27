@@ -1,0 +1,26 @@
+.root{
+    margin-top: 20px;
+}
+
+.title{
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.notFound{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.progress{
+    margin: 30px;
+}
+
+.progressContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.link{
+    text-decoration: none;
+}
