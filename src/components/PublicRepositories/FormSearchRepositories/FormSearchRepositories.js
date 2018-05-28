@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import Snackbar from '@material-ui/core/Snackbar';
+import Snackbar from '@material-ui/core/Snackbar'
 
 class FormSearchRepositories extends Component {
 
@@ -20,7 +20,6 @@ class FormSearchRepositories extends Component {
     render() {
 
         const {
-            username,
             snackOpen,
             snackMessage,
         } = this.state
@@ -37,8 +36,8 @@ class FormSearchRepositories extends Component {
                 <TextField
                     id="username"
                     label="Usuário do github"
-                    value={username}
-                    onChange={(e) => this.setState({username: e.target.value})}
+                    value={this.props.username}
+                    onChange={(e) => this.props.updateUser(e.target.value)}
                 />
                 <Button
                     style={{marginLeft: '10px'}}
@@ -78,7 +77,7 @@ class FormSearchRepositories extends Component {
     }
 
     _onSearchClick = () => {
-        let query = this.state.username
+        let query = this.props.username
         if (!query) {
             this._showMessage('Infome o usuário do Github')
             return

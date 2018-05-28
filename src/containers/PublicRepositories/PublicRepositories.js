@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import FormSearchRepositories from '../../components/Forms/FormSearchRepositories/FormSearchRepositories'
-import DefaultList from '../../components/Lists/DefaultList/DefaultList'
-import { AppProvider, AppConsumer } from '../../contexts/AppContext'
+import FormSearchRepositories from '../../components/PublicRepositories/FormSearchRepositories/FormSearchRepositories'
+import DefaultList from '../../components/PublicRepositories/DefaultList/DefaultList'
+import { AppConsumer } from '../../contexts/AppContext'
 import axios from 'axios'
 
 class PublicRepositories extends Component {
@@ -18,32 +18,33 @@ class PublicRepositories extends Component {
     } = this.state
 
     return (
-      <AppProvider>
-        <AppConsumer>
-          {({repos, updateRepos}) => (
-            <div>
-              <FormSearchRepositories
-                onSearchRepos={(query) => this._searchRepos(query, updateRepos)}
-                showMessage={error}
-              />
-              <DefaultList
-                source={repos}
-                loading={loading}
-              />    
-            </div>
-          )}
-        </AppConsumer>
-      </AppProvider>
+      <AppConsumer>
+        {(context) => (
+          <div>
+            <FormSearchRepositories
+              onSearchRepos={(user) => this._searchRepos(context.user, context.updateRepos)}
+              showMessage={error}
+              username={context.user}
+              updateUser={(username) => context.updateUser(username)}
+            />
+            <DefaultList
+              source={context.repos}
+              loading={loading}
+              onOrder={(order) => this._order(context.user, context.updateRepos, order)}
+            />    
+          </div>
+        )}
+      </AppConsumer>
     )
   }
 
-  _searchRepos = (query, updateRepos) => {
+  _searchRepos = (user, updateRepos, query) => {
     this.setState({
       loading: true,
       error: false,
     })
     updateRepos(null)
-    axios.get(`https://api.github.com/users/${query}/repos`)
+    axios.get(`https://api.github.com/users/${user}/repos${query ? query : ''}`)
     .then((response) => {
       this.setState({loading: false})
       updateRepos(response.data)
@@ -57,8 +58,9 @@ class PublicRepositories extends Component {
     })
   }
 
-  _updateRepos = (repos) => {
-    return null
+  _order = (user, updateRepos, order) => {
+    let query = `?sort=${order.sort}&direction=${order.direction}`
+    this._searchRepos(user, updateRepos, query)
   }
 
 }

@@ -1,0 +1,18 @@
+.root
+{
+  margin-top: 30px;
+}
+
+.loading-indicator
+{
+  display: flex;
+  margin-top: 10px;
+  padding-bottom: 20px;
+  justify-content: center;
+}
+
+.loading-indicator-hidden
+{
+  composes: loading-indicator;
+  opacity: 0;
+}
