@@ -22,6 +22,8 @@ Ao filtrar os commits, o "Endless scrolling" é desabilitado, o "Endless scrolli
 
 ### O que utilizei
 
+material-ui
+
 Intersection Observer (Para o "Endless scrolling")
 
 O novo Context API (Para o gerenciamento dos estados únicos)
