@@ -16,6 +16,8 @@ Foram implementados os teste de renderização de todos os containers e componen
 
 npm test
 
+pressione 'a' para rodar todos os testes
+
 ### Instruções de uso
 
 Informe o usuário do github e cloque em "Pesquisar"
