@@ -4,9 +4,17 @@ O projeto foi iniciado a partir do [Create React App](https://github.com/faceboo
 
 clonar o repositório
 
+cd nome_pasta
+
 npm install
 
 npm start
+
+### Como testar
+
+Foram implementados os teste de renderização de todos os containers e components, para testar basta executar o comando abaixo dentro do diretório.
+
+npm test
 
 ### Instruções de uso
 
@@ -35,5 +43,3 @@ React Router
 ### O que Falta fazer
 
 Implementar o Storybook.js
-
-Implementar os Testes unitários
