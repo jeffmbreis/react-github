@@ -29,7 +29,7 @@ class DefaultList extends Component {
         } = this.props
 
         return (
-            <div styleName='root'>
+            <div className={styles.root}>
                 <Paper>
                     {loading &&
                         <div className={styles.progressContainer}>

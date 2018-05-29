@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Root from './Root'
+import DefaultList from './DefaultList'
 
 it('component render without error', () => {
   const div = document.createElement('div')
-  ReactDOM.render(<Root />, div)
+  ReactDOM.render(<DefaultList />, div)
   ReactDOM.unmountComponentAtNode(div)
 })

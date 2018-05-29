@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Root from './Root'
+import { AppProvider }  from './AppContext'
 
-it('component render without error', () => {
+it('render Context Provider without error', () => {
   const div = document.createElement('div')
-  ReactDOM.render(<Root />, div)
+  ReactDOM.render(<AppProvider />, div)
   ReactDOM.unmountComponentAtNode(div)
 })

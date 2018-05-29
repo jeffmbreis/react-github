@@ -20,7 +20,7 @@ class App extends Component {
                 <Typography variant="title" color="inherit">React GitHub</Typography>
               </Toolbar>
             </AppBar>
-            <div styleName='pages'>
+            <div className={styles.pages}>
               <Route path="/" exact component={PublicRepositories}/>
               <Route path="/commits/:owner/:repo" component={Commits}/>
             </div>

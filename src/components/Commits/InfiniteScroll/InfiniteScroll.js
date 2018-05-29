@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import 'intersection-observer'
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 import Paper from '@material-ui/core/Paper'
@@ -24,8 +25,8 @@ class InfiniteScroll extends Component {
         this.observer.observe(this.refLoadingIndicator)
     }
 
-    componentDidUpdate() {
-        if (this.props.stop) {
+    componentDidUpdate(nextProps) {
+        if (this.props.stop !== nextProps.stop ) {
             this.observer.unobserve(this.refLoadingIndicator)
         } else {
             this.observer.observe(this.refLoadingIndicator)

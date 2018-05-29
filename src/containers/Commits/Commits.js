@@ -14,7 +14,8 @@ import { withRouter } from 'react-router-dom'
 import styles from './style.module.css'
 import TextField from '@material-ui/core/TextField'
 import moment from 'moment'
-import InfiniteScroll from '../../components/Commits/InfiniteScroll/InfiniteScroll';
+import InfiniteScroll from '../../components/Commits/InfiniteScroll/InfiniteScroll'
+import uniqid from 'uniqid'
 
 class Commits extends Component {
 
@@ -81,7 +82,7 @@ class Commits extends Component {
             <ListItemText primary={<p className={styles.title}>Commits</p>} />
           </ListItem>
           {this.state.commits.filter(this._filter).map(commit => (
-            <div>
+            <div key={uniqid()}>
               <Divider />
               <ListItem>
                 <Avatar
